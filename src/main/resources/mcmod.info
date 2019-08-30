@@ -1,0 +1,15 @@
+[
+{
+  "modid": "circlehelper",
+  "name": "Circle Helper Mod",
+  "description": "Mod for Helping with Constructing Circles & Spheres",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["inventivetalent"],
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
