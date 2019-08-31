@@ -85,4 +85,11 @@ public class CircleCommand extends CommandBase implements ICommand {
 		}
 
 	}
+
+
+	@Override
+	public int getRequiredPermissionLevel() {
+		return 0;
+	}
+
 }

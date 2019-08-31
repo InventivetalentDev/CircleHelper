@@ -95,7 +95,9 @@ public class RenderListener {
 		for (int i = 0; i < ShapeManager.currentPositions.size(); i++) {
 			Pos pos = ShapeManager.currentPositions.get(i);
 
-			drawCube(buf, pos.x + 0.5f, pos.y + 0.5f, pos.z + 0.5f);
+			if (distanceSquared(d0, pos.x, d1, pos.y, d2, pos.z)<1024) {
+				drawCube(buf, pos.x + 0.5f, pos.y + 0.5f, pos.z + 0.5f);
+			}
 		}
 
 		tessy.draw();
@@ -105,7 +107,7 @@ public class RenderListener {
 
 		GlStateManager.enableLighting();
 		GlStateManager.enableCull();
-		GlStateManager.disableAlpha();
+//		GlStateManager.disableAlpha();
 		GlStateManager.enableTexture2D();
 		GlStateManager.popMatrix();
 		GL11.glPopMatrix();
@@ -151,6 +153,14 @@ public class RenderListener {
 		buf.pos(x - CUBE_RADIUS, y - CUBE_RADIUS, z + CUBE_RADIUS).endVertex();
 		buf.pos(x - CUBE_RADIUS, y - CUBE_RADIUS, z - CUBE_RADIUS).endVertex();
 
+	}
+
+	private static double distanceSquared(double x1, double x2, double y1, double y2, double z1, double z2) {
+		return square(x2 - x1) +square(y2 - y1) + square(z2 - z1);
+	}
+
+	private static double square(double x) {
+		return x*x;
 	}
 
 }
